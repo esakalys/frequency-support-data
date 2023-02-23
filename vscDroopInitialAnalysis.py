@@ -12,6 +12,9 @@ for scenario in scenarios:
 
     ds = f.importData(files, 'data/matFiles')
 
+    for file in files:
+        file.replace('.mat', '')
+
     plt.figure(figsize=(6, 4), dpi=400)
 
     plt.plot(ds[files[0]]['Time'], ds[files[0]]['Value'], color=colors[0], linewidth=1, label='With VSC')
@@ -22,4 +25,4 @@ for scenario in scenarios:
     plt.xlabel('Time, s')
     plt.ylabel('Frequency, Hz')
     plt.legend(loc='upper right')
-    plt.savefig(f'plots/VSCdroop{scenario}.jpg', dpi=400)
+    plt.savefig(f'initialPlots/VSCdroop{scenario}.jpg', dpi=400)

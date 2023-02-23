@@ -80,7 +80,7 @@ plt.title('Underfrequency Events - Frequency - 5s')
 plt.xlabel('Time, s')
 plt.ylabel('Frequency, Hz')
 plt.legend(ufF5, loc='upper right')
-plt.savefig('plots/UnderfrequencyEventsF5s.jpg', dpi=400)
+plt.savefig('initialPlots/UnderfrequencyEventsF5s.jpg', dpi=400)
 
 # H = 5s Underfrequency events - Power
 plt.figure(figsize=(6, 4), dpi=400)
@@ -93,7 +93,7 @@ plt.title('Underfrequency Events - Power - 5s')
 plt.xlabel('Time, s')
 plt.ylabel('Power, MW')
 plt.legend(ufP5, loc='upper right')
-plt.savefig('plots/UnderfrequencyEventsP5s.jpg', dpi=400)
+plt.savefig('initialPlots/UnderfrequencyEventsP5s.jpg', dpi=400)
 
 # H = 5s Overfrequency events - Frequency
 plt.figure(figsize=(6, 4), dpi=400)
@@ -106,7 +106,7 @@ plt.title('Overfrequency Events - Frequency - 5s')
 plt.xlabel('Time, s')
 plt.ylabel('Frequency, Hz')
 plt.legend(ofF5, loc='upper right')
-plt.savefig('plots/OverfrequencyEventsF5s.jpg', dpi=400)
+plt.savefig('initialPlots/OverfrequencyEventsF5s.jpg', dpi=400)
 
 # H = 5s Overfrequency events - Power
 plt.figure(figsize=(6, 4), dpi=400)
@@ -119,7 +119,7 @@ plt.title('Overfrequency Events - Power - 5s')
 plt.xlabel('Time, s')
 plt.ylabel('Power, MW')
 plt.legend(ofP5, loc='upper right')
-plt.savefig('plots/OverfrequencyEventsP5s.jpg', dpi=400)
+plt.savefig('initialPlots/OverfrequencyEventsP5s.jpg', dpi=400)
 
 # H = 10s Underfrequency events - Frequency
 plt.figure(figsize=(6, 4), dpi=400)
@@ -132,7 +132,7 @@ plt.title('Underfrequency Events - Frequency - 10s')
 plt.xlabel('Time, s')
 plt.ylabel('Frequency, Hz')
 plt.legend(ufF10, loc='upper right')
-plt.savefig('plots/UnderfrequencyEventsF10s.jpg', dpi=400)
+plt.savefig('initialPlots/UnderfrequencyEventsF10s.jpg', dpi=400)
 
 # H = 10s Underfrequency events - Power
 plt.figure(figsize=(6, 4), dpi=400)
@@ -145,7 +145,7 @@ plt.title('Underfrequency Events - Power - 10s')
 plt.xlabel('Time, s')
 plt.ylabel('Power, MW')
 plt.legend(ufP10, loc='upper right')
-plt.savefig('plots/UnderfrequencyEventsP10s.jpg', dpi=400)
+plt.savefig('initialPlots/UnderfrequencyEventsP10s.jpg', dpi=400)
 
 # H = 10s Overfrequency events - Frequency
 plt.figure(figsize=(6, 4), dpi=400)
@@ -158,7 +158,7 @@ plt.title('Overfrequency Events - Frequency - 10s')
 plt.xlabel('Time, s')
 plt.ylabel('Frequency, Hz')
 plt.legend(ofF10, loc='upper right')
-plt.savefig('plots/OverfrequencyEventsF10s.jpg', dpi=400)
+plt.savefig('initialPlots/OverfrequencyEventsF10s.jpg', dpi=400)
 
 # H = 10s Overfrequency events - Power
 plt.figure(figsize=(6, 4), dpi=400)
@@ -171,7 +171,7 @@ plt.title('Overfrequency Events - Power - 10s')
 plt.xlabel('Time, s')
 plt.ylabel('Power, MW')
 plt.legend(ofP10, loc='upper right')
-plt.savefig('plots/OverfrequencyEventsP10s.jpg', dpi=400)
+plt.savefig('initialPlots/OverfrequencyEventsP10s.jpg', dpi=400)
 
 # Comparisons between H = 5s and H = 10s
 # -10 MW
@@ -185,7 +185,7 @@ plt.title('Overfrequency Event -10MW')
 plt.xlabel('Time, s')
 plt.ylabel('Frequency, Hz')
 plt.legend(['H = 5s', 'H = 10s'], loc='upper right')
-plt.savefig('plots/OverfrequencyComparison.jpg', dpi=400)
+plt.savefig('initialPlots/OverfrequencyComparison.jpg', dpi=400)
 
 # +10 MW
 plt.figure(figsize=(6, 4), dpi=400)
@@ -198,4 +198,4 @@ plt.title('Underfrequency Event +10MW')
 plt.xlabel('Time, s')
 plt.ylabel('Frequency, Hz')
 plt.legend(['H = 5s', 'H = 10s'], loc='upper right')
-plt.savefig('plots/UnderfrequencyComparison.jpg', dpi=400)
+plt.savefig('initialPlots/UnderfrequencyComparison.jpg', dpi=400)

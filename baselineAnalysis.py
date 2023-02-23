@@ -24,7 +24,7 @@ plt.xlabel('Time, s')
 plt.ylabel('Frequency, Hz')
 plt.xlim([0, 35])
 plt.legend(loc='lower right')
-plt.savefig(f'plots/baselineFrequency.jpg', dpi=400)
+plt.savefig(f'reportPlots/baselineFrequency.jpg', dpi=400)
 # Frequency End
 
 # Power Start
@@ -32,7 +32,7 @@ colors = ['#FC2525', '#BE1F1F', '#7F1818']
 
 files = [f'PowerGen {scenario} 5s.mat' for scenario in scenarios]
 
-ds = f.importData(files, 'baselineMat')
+ds = f.importData(files, 'data/baselineMat')
 
 plt.figure(figsize=(6, 4), dpi=400)
 
@@ -47,5 +47,5 @@ plt.xlabel('Time, s')
 plt.ylabel('Power, MW')
 plt.xlim([0, 35])
 plt.legend(loc='lower right')
-plt.savefig(f'plots/baselinePower.jpg', dpi=400)
+plt.savefig(f'reportPlots/baselinePower.jpg', dpi=400)
 # Power End
