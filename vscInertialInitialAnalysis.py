@@ -1,26 +1,16 @@
-import pandas as pd
-import numpy as np
+
 import matplotlib.pyplot as plt
-import os
-import mat73
+import functions as f
+
+# Program used perform initial analysis of the frequency response of the grid with the VSC contributing while under inertial control
 
 scenarios = ['+10', '+20', '+30', '+40', '+50']
-dir = os.getcwd()
+colors = ["#409823","#E47928"]
 
 for scenario in scenarios:
-    files = [f'Frequency {scenario}', f'Frequency {scenario} 5s']
+    files = [f'Frequency {scenario}.mat', f'Frequency {scenario} 5s.mat']
 
-    colors = ["#409823","#E47928"]
-
-    ds = {}
-
-    for file in files:
-        mat = mat73.loadmat(f'{dir}/matFiles/{file}.mat')
-        x = mat['x'][1]
-        t = mat['x'][0]
-
-        data = {'Time': t, 'Value': x}
-        ds[file] = data
+    ds = f.importData(files, 'data/matFiles')
 
     plt.figure(figsize=(6, 4), dpi=400)
 

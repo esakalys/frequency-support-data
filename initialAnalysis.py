@@ -1,33 +1,20 @@
-import pandas as pd
-import numpy as np
+
 import matplotlib.pyplot as plt
 import os
-import mat73
+import functions as f
 
-# Program to convert the .mat files to .csv files
+# Program to plot initial exploratory simulation data
 
 dir = os.getcwd()
-files = os.listdir(f'{dir}/matFiles')
+files = os.listdir(f'{dir}/data/matFiles')
+
+ds = f.importData(files, 'data/matFiles', trimTime=False)
 
 colorsBlue = ["#0A2136","#133557","#1C4977","#265E98","#2F72B9","#3886D9","#419AFA"]
 colorsRed = ["#751414","#8B1D1D","#A12626","#B83030","#CE3939","#E44242","#FA4B4B"]
 colorsComp = ["#409823","#E47928"]
 
-ds = {}
-
-for file in files:
-    if '.mat' in file:
-        mat = mat73.loadmat(f'{dir}/matFiles/{file}')
-        x = mat['x'][1]
-        t = mat['x'][0]
-
-        # Define positive power as power from generator to grid
-        if 'Power' in file:
-            x = [(-1/1000000)*value for value in x]
-
-        data = {'Time': t, 'Value': x}
-        file = file.replace('.mat', '')
-        ds[file] = data
+# Sorting the data by simulated event
 
 keys = ds.keys()
 
@@ -62,8 +49,8 @@ for key in keys:
         ofF10.append(key)
     elif ('Power' in key) and ('10s' in key and '-' in key or 'Base' in key):
         ofP10.append(key)
-    # Inertia comparison
 
+# Sorting the data to make sure everything is in the right order
 ufF5.sort()
 ufF5.insert(0, ufF5.pop())
 ufP5.sort()
@@ -82,6 +69,7 @@ ofF10.insert(0, ofF10.pop())
 ofP10.sort()
 ofP10.insert(0, ofP10.pop())
 
+# H = 5s Underfrequency events - Frequency
 plt.figure(figsize=(6, 4), dpi=400)
 i = 0
 for case in ufF5:
@@ -94,6 +82,7 @@ plt.ylabel('Frequency, Hz')
 plt.legend(ufF5, loc='upper right')
 plt.savefig('plots/UnderfrequencyEventsF5s.jpg', dpi=400)
 
+# H = 5s Underfrequency events - Power
 plt.figure(figsize=(6, 4), dpi=400)
 i = 0
 for case in ufP5:
@@ -106,6 +95,7 @@ plt.ylabel('Power, MW')
 plt.legend(ufP5, loc='upper right')
 plt.savefig('plots/UnderfrequencyEventsP5s.jpg', dpi=400)
 
+# H = 5s Overfrequency events - Frequency
 plt.figure(figsize=(6, 4), dpi=400)
 i = 0
 for case in ofF5:
@@ -118,6 +108,7 @@ plt.ylabel('Frequency, Hz')
 plt.legend(ofF5, loc='upper right')
 plt.savefig('plots/OverfrequencyEventsF5s.jpg', dpi=400)
 
+# H = 5s Overfrequency events - Power
 plt.figure(figsize=(6, 4), dpi=400)
 i = 0
 for case in ofP5:
@@ -130,6 +121,7 @@ plt.ylabel('Power, MW')
 plt.legend(ofP5, loc='upper right')
 plt.savefig('plots/OverfrequencyEventsP5s.jpg', dpi=400)
 
+# H = 10s Underfrequency events - Frequency
 plt.figure(figsize=(6, 4), dpi=400)
 i = 0
 for case in ufF10:
@@ -142,6 +134,7 @@ plt.ylabel('Frequency, Hz')
 plt.legend(ufF10, loc='upper right')
 plt.savefig('plots/UnderfrequencyEventsF10s.jpg', dpi=400)
 
+# H = 10s Underfrequency events - Power
 plt.figure(figsize=(6, 4), dpi=400)
 i = 0
 for case in ufP10:
@@ -154,6 +147,7 @@ plt.ylabel('Power, MW')
 plt.legend(ufP10, loc='upper right')
 plt.savefig('plots/UnderfrequencyEventsP10s.jpg', dpi=400)
 
+# H = 10s Overfrequency events - Frequency
 plt.figure(figsize=(6, 4), dpi=400)
 i = 0
 for case in ofF10:
@@ -166,6 +160,7 @@ plt.ylabel('Frequency, Hz')
 plt.legend(ofF10, loc='upper right')
 plt.savefig('plots/OverfrequencyEventsF10s.jpg', dpi=400)
 
+# H = 10s Overfrequency events - Power
 plt.figure(figsize=(6, 4), dpi=400)
 i = 0
 for case in ofP10:
@@ -178,8 +173,8 @@ plt.ylabel('Power, MW')
 plt.legend(ofP10, loc='upper right')
 plt.savefig('plots/OverfrequencyEventsP10s.jpg', dpi=400)
 
-# Comparisons between 5s and 10s
-
+# Comparisons between H = 5s and H = 10s
+# -10 MW
 plt.figure(figsize=(6, 4), dpi=400)
 
 plt.plot(ds['Frequency -10 5s']['Time'], ds['Frequency -10 5s']['Value'], color=colorsComp[0], linewidth=1)
@@ -192,6 +187,7 @@ plt.ylabel('Frequency, Hz')
 plt.legend(['H = 5s', 'H = 10s'], loc='upper right')
 plt.savefig('plots/OverfrequencyComparison.jpg', dpi=400)
 
+# +10 MW
 plt.figure(figsize=(6, 4), dpi=400)
 
 plt.plot(ds['Frequency +10 5s']['Time'], ds['Frequency +10 5s']['Value'], color=colorsComp[0], linewidth=1)

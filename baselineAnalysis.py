@@ -9,7 +9,7 @@ colors = ['#6386F1', '#3B53A8', '#13205F']
 
 files = [f'Frequency {scenario} 5s.mat' for scenario in scenarios]
 
-ds = f.importData(files, 'baselineMat')
+ds = f.importData(files, 'data/baselineMat')
 
 plt.figure(figsize=(6, 4), dpi=400)
 

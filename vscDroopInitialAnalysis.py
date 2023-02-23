@@ -1,13 +1,16 @@
+
 import matplotlib.pyplot as plt
 import functions as f
+
+# Program used perform initial analysis of the frequency response of the grid with the VSC contributing while under droop control
 
 scenarios = ['+10', '+20', '+30', '+40', '+50']
 colors = ["#409823", "#E47928"]
 
 for scenario in scenarios:
-    files = [f'Frequency Droop {scenario}', f'Frequency {scenario} 5s']
+    files = [f'Frequency Droop {scenario}.mat', f'Frequency {scenario} 5s.mat']
 
-    ds = f.importData(files, 'matFiles')
+    ds = f.importData(files, 'data/matFiles')
 
     plt.figure(figsize=(6, 4), dpi=400)
 
