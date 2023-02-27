@@ -1,12 +1,12 @@
 import functions as f
 import matplotlib.pyplot as plt
 
-# Program used to plot the effect of generator inertia (H)
+# Program used to plot the effect of generator inertia (H) on rocof
 
 scenarios = ['5s', '4s', '3s', '2s', '1s']
 colors = ['#3B53A8', '#5C3E7E', '#7C2A54', '#9D152A', '#BD0000']
 
-files = [f'Frequency +10MW {scenario}.mat' for scenario in scenarios]
+files = [f'rocof +10MW {scenario}.mat' for scenario in scenarios]
 
 ds = f.importData(files, 'data/hMat')
 
@@ -18,10 +18,10 @@ for key in ds.keys():
     i += 1
 
 plt.grid()
-plt.title('Effect of Varying H on Grid Frequency')
+plt.title('Effect of Varying H on Grid RoCoF')
 plt.xlabel('Time, s')
-plt.ylabel('Frequency, Hz')
+plt.ylabel('RoCoF, Hz/s')
 plt.xlim([4, 10])
-plt.ylim([49, 50.5])
+plt.ylim([-0.05, 0.05])
 plt.legend(loc='lower right')
-plt.savefig(f'reportPlots/varyingH.jpg', dpi=400)
+plt.savefig(f'reportPlots/hRocof.jpg', dpi=400)
