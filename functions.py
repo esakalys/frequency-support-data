@@ -16,7 +16,7 @@ def importData(files, location, trimTime=True, single=False):
             t = mat['x'][0]
 
         # Define positive power as power from generator / vsc to grid in MW
-        if 'Power' in files:
+        if 'power' in files:
             x = [(-1/1000000)*value for value in x]
 
         data = {'Time': t, 'Value': x}
@@ -31,7 +31,7 @@ def importData(files, location, trimTime=True, single=False):
                 t = mat['x'][0]
 
             # Define positive power as power from generator / vsc to grid in MW
-            if 'Power' in file:
+            if 'power' in file:
                 x = [(-1/1000000)*value for value in x]
 
             data = {'Time': t, 'Value': x}
