@@ -17,11 +17,11 @@ for key in ds.keys():
     plt.plot(ds[key]['Time'], ds[key]['Value'], color=colors[i], linewidth=1.4, label=f'H = {scenarios[i]}')
     i += 1
 
-plt.grid()
+plt.grid(linewidth=0.3, linestyle='--', color='#E1E1E1')
 plt.title('Grid RoCoF  |  \u0394P = +10 MW', pad=20)
 plt.xlabel('Time, s')
 plt.ylabel('RoCoF, Hz/s')
 plt.xlim([4, 14])
 plt.ylim([-0.4, 0.4])
 plt.legend(loc='lower right')
-plt.savefig('plots/v2-plots/h-rocof.jpg', dpi=400, bbox_inches='tight')
+plt.savefig('plots/v2-plots/1-h-rocof.jpg', dpi=400, bbox_inches='tight')

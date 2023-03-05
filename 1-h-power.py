@@ -1,12 +1,12 @@
 import functions as f
 import matplotlib.pyplot as plt
 
-# Program used to plot the effect of generator inertia (H) on frequency
+# Program used to plot the effect of generator inertia (H) on generator power output
 
 scenarios = ['5s', '4s', '3s', '2s']
 colors = ['#0789FA', '#555FAA', '#A3345A', '#F10A0A']
 
-files = [f'frequency {scenario}.mat' for scenario in scenarios]
+files = [f'power-gen {scenario}.mat' for scenario in scenarios]
 
 ds = f.importData(files, 'data/v2-data/1-h-study')
 
@@ -17,11 +17,11 @@ for key in ds.keys():
     plt.plot(ds[key]['Time'], ds[key]['Value'], color=colors[i], linewidth=1.4, label=f'H = {scenarios[i]}')
     i += 1
 
-plt.grid()
-plt.title('Grid Frequency  |  \u0394P = +10 MW', pad=20)
+plt.grid(linewidth=0.3, linestyle='--', color='#E1E1E1')
+plt.title('Generator Power Ouput  |  \u0394P = +10 MW', pad=20)
 plt.xlabel('Time, s')
-plt.ylabel('Frequency, Hz')
+plt.ylabel('Power, MW')
 plt.xlim([4, 14])
-plt.ylim([49.4, 50.2])
+plt.ylim([48, 65])
 plt.legend(loc='lower right')
-plt.savefig('plots/v2-plots/h-frequency.jpg', dpi=400, bbox_inches='tight')
+plt.savefig('plots/v2-plots/1-h-power-gen.jpg', dpi=400, bbox_inches='tight')
