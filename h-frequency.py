@@ -18,7 +18,7 @@ for key in ds.keys():
     i += 1
 
 plt.grid()
-plt.title('Effect of Varying Generator Inertia on Grid Frequency - \u0394P = +10 MW', pad=20)
+plt.title('Grid Frequency  |  \u0394P = +10 MW', pad=20)
 plt.xlabel('Time, s')
 plt.ylabel('Frequency, Hz')
 plt.xlim([4, 14])
