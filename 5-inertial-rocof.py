@@ -23,7 +23,7 @@ for h in inertia:
         plt.title(f'Grid RoCoF  |  H(Gen) = {h}  |  \u0394P = +{scenario}', pad=20)
         plt.xlabel('Time, s')
         plt.ylabel('RoCoF, Hz/s')
-        plt.xlim([0, 25])
+        plt.xlim([0, 35])
         plt.ylim([-0.55, 0.55])
         plt.legend(loc='upper right')
         plt.savefig(f'plots/v2-plots/5-inertial-rocof-{h}-{scenario}.jpg', dpi=400, bbox_inches='tight')

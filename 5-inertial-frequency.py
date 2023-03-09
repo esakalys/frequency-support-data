@@ -23,7 +23,7 @@ for h in inertia:
         plt.title(f'Grid Frequency  |  H(Gen) = {h}  |  \u0394P = +{scenario}', pad=20)
         plt.xlabel('Time, s')
         plt.ylabel('Frequency, Hz')
-        plt.xlim([0, 25])
+        plt.xlim([0, 35])
         plt.ylim([48.8, 50.5])
         plt.legend(loc='upper right')
         plt.savefig(f'plots/v2-plots/5-inertial-frequency-{h}-{scenario}.jpg', dpi=400, bbox_inches='tight')

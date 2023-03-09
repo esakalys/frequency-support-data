@@ -1,7 +1,7 @@
 import functions as f
 import matplotlib.pyplot as plt
 
-# Program used to plot the inertial study VSC power output data
+# Program used to plot the droop study VSC power output data
 
 scenarios = ['5MW', '10MW', '15MW']
 inertia = ['5s', '2.5s']
@@ -10,7 +10,7 @@ colors = ['#0789FA', '#7C4A82', '#F10A0A']
 for h in inertia:
     files = [f'power-vsc {scenario} {h}.mat' for scenario in scenarios]
 
-    ds = f.importData(files, 'data/v2-data/5-inertial-study')
+    ds = f.importData(files, 'data/v2-data/6-droop-study')
 
     plt.figure(figsize=(6, 4), dpi=400)
 
@@ -24,6 +24,6 @@ for h in inertia:
     plt.xlabel('Time, s')
     plt.ylabel('Power, MW')
     plt.xlim([0, 35])
-    plt.ylim([-2, 15])
+    plt.ylim([-2, 20])
     plt.legend(loc='upper right')
-    plt.savefig(f'plots/v2-plots/5-inertial-power-vsc-{h}.jpg', dpi=400, bbox_inches='tight')
+    plt.savefig(f'plots/v2-plots/6-droop-power-vsc-{h}.jpg', dpi=400, bbox_inches='tight')
