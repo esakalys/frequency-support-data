@@ -15,9 +15,11 @@ for h in inertia:
     plt.figure(figsize=(6, 4), dpi=400)
 
     i = 0
+    z = 10
     for key in ds.keys():
-        plt.plot(ds[key]['Time'], ds[key]['Value'], color=colors[i], linewidth=1.4, label=f'\u0394P = +{scenarios[i]}')
+        plt.plot(ds[key]['Time'], ds[key]['Value'], color=colors[i], linewidth=1.4, label=f'\u0394P = +{scenarios[i]}', zorder=z)
         i += 1
+        z -= 1
 
     plt.grid(linewidth=0.3, linestyle='--', color='#E1E1E1')
     plt.title(f'Grid RoCoF  |  H = {h}', pad=20)
