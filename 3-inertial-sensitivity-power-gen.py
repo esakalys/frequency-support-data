@@ -25,7 +25,7 @@ for h in inertia:
     plt.title(f'Generator Power Ouput  |  H(Gen) = {h}', pad=20)
     plt.xlabel('Time, s')
     plt.ylabel('Power, MW')
-    plt.xlim([0, 25])
+    plt.xlim([0, 35])
     plt.ylim([48, 62])
     plt.legend(loc='lower right')
     plt.savefig(f'plots/v2-plots/3-inertial-sensitivity-power-gen-{h}.jpg', dpi=400, bbox_inches='tight')

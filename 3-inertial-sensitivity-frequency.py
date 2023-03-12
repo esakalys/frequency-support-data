@@ -23,7 +23,7 @@ for h in inertia:
     plt.title(f'Grid Frequency  |  H(Gen) = {h}', pad=20)
     plt.xlabel('Time, s')
     plt.ylabel('Frequency, Hz')
-    plt.xlim([0, 25])
+    plt.xlim([0, 35])
     plt.ylim([49.7, 50.1])
     plt.legend(loc='upper right')
     plt.savefig(f'plots/v2-plots/3-inertial-sensitivity-frequency-{h}.jpg', dpi=400, bbox_inches='tight')

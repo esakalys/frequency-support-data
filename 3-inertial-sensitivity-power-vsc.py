@@ -23,7 +23,7 @@ for h in inertia:
     plt.title(f'VSC Power Ouput  |  H(Gen) = {h}', pad=20)
     plt.xlabel('Time, s')
     plt.ylabel('Power, MW')
-    plt.xlim([0, 25])
+    plt.xlim([0, 35])
     plt.ylim([-2, 10])
     plt.legend(loc='upper right')
     plt.savefig(f'plots/v2-plots/3-inertial-sensitivity-power-vsc-{h}.jpg', dpi=400, bbox_inches='tight')

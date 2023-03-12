@@ -23,7 +23,7 @@ for h in inertia:
     plt.title(f'Grid RoCoF  |  H(Gen) = {h}', pad=20)
     plt.xlabel('Time, s')
     plt.ylabel('RoCoF, Hz/s')
-    plt.xlim([0, 25])
+    plt.xlim([0, 35])
     plt.ylim([-0.15, 0.05])
     plt.legend(loc='lower right')
     plt.savefig(f'plots/v2-plots/3-inertial-sensitivity-rocof-{h}.jpg', dpi=400, bbox_inches='tight')
