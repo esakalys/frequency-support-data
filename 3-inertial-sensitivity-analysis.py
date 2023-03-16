@@ -1,5 +1,4 @@
 import functions as f
-import matplotlib.pyplot as plt
 import numpy as np
 
 # Program used to carry out the baseline study analysis
@@ -54,6 +53,12 @@ for h in inertia:
 
         ds = np.delete(dsV[key]['Value'], index)
 
+        cleanTime = map(lambda t: round(t, 7), dsV[key]['Time'])
+        dsV[key]['Time'] = list(cleanTime)
+
+        energy = round(f.integrate(dsV[key], 4.0, 25.0), 4)
+
         p_max = round(max(abs(ds)), 4)
-        print(f'Case {scenarios[i]}: Maximum VSC Power Output = {p_max}')
+        print(f'Case {scenarios[i]}: Maximum VSC Power Output = {p_max} MW')
+        print(f'Case {scenarios[i]}: VSC Energy Used = {energy} MJ')
         i += 1

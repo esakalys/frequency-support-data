@@ -54,8 +54,14 @@ for h in inertia:
 
         ds = np.delete(dsV[key]['Value'], index)
 
+        cleanTime = map(lambda t: round(t, 7), dsV[key]['Time'])
+        dsV[key]['Time'] = list(cleanTime)
+
+        energy = round(f.integrate(dsV[key], 5.0, 10.0), 4)
+
         p_max = round(max(abs(ds)), 4)
         p_ss = round(ds[-1], 4)
         print(f'Case {scenarios[i]}: Maximum VSC Power Output = {p_max}')
+        print(f'Case {scenarios[i]}: VSC Energy Used = {energy} MJ')
         print(f'Case {scenarios[i]}: Steady-State VSC Power Ouput = {p_ss}')
         i += 1

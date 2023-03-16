@@ -2,7 +2,7 @@ import functions as f
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Program used to carry out the droop study analysis
+# Program used to carry out the inertial + droop study analysis
 
 scenarios = ['5MW', '10MW', '15MW']
 inertia = ['5s', '2.5s']
@@ -13,11 +13,11 @@ for h in inertia:
     filesR = [f'rocof {scenario} {h}.mat' for scenario in scenarios]
     filesV = [f'power-vsc {scenario} {h}.mat' for scenario in scenarios]
 
-    dsF = f.importData(filesF, 'data/v2-data/6-droop-study')
+    dsF = f.importData(filesF, 'data/v2-data/7-inertial-droop-study')
     dsF_base = f.importData(filesF, 'data/v2-data/2-baseline-study')
-    dsR = f.importData(filesR, 'data/v2-data/6-droop-study')
+    dsR = f.importData(filesR, 'data/v2-data/7-inertial-droop-study')
     dsR_base = f.importData(filesR, 'data/v2-data/2-baseline-study')
-    dsV = f.importData(filesV, 'data/v2-data/6-droop-study')
+    dsV = f.importData(filesV, 'data/v2-data/7-inertial-droop-study')
 
     print(f'Generator Inertia = {h}')
     print()
@@ -68,9 +68,15 @@ for h in inertia:
 
         ds = np.delete(dsV[key]['Value'], index)
 
+        cleanTime = map(lambda t: round(t, 7), dsV[key]['Time'])
+        dsV[key]['Time'] = list(cleanTime)
+
+        energy = round(f.integrate(dsV[key], 5.0, 10.0), 4)
+
         p_max = round(max(abs(ds)), 4)
         p_ss = round(ds[-1], 4)
-        print(f'Maximum VSC Power Output = {p_max}')
-        print(f'Steady State VSC Power Output = {p_ss}')
+        print(f'Maximum VSC Power Output = {p_max} MW')
+        print(f'VSC Energy Used = {energy} MJ')
+        print(f'Steady State VSC Power Output = {p_ss} MW')
         i += 1
         print()

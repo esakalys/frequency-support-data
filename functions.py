@@ -1,5 +1,6 @@
 import os
 import mat73
+import numpy as np
 
 # Function used to import the simulation data stored in .mat files
 def importData(files, location, trimTime=True, single=False):
@@ -39,3 +40,15 @@ def importData(files, location, trimTime=True, single=False):
 
     return ds
 
+# Function for integrating the VSC power output
+def integrate(data, t1, t2, tStep=5e-6):
+    sum = 0.0
+
+    t1_index = data['Time'].index(t1)
+    t2_index = data['Time'].index(t2)
+
+    ds = np.array(data['Value'][t1_index:t2_index])
+
+    for value in ds:
+        sum += value*tStep
+    return sum
