@@ -40,5 +40,5 @@ if baseline:
   plt.ylim([48.8, 50.4])
   plt.savefig(f'plots/v2-plots/9-limited-capacity-frequency-with-baseline.jpg', dpi=400, bbox_inches='tight')
 else:
-  plt.ylim([49.5, 50.1])
+  plt.ylim([49.6, 50.1])
   plt.savefig(f'plots/v2-plots/9-limited-capacity-frequency-no-baseline.jpg', dpi=400, bbox_inches='tight')

@@ -40,5 +40,5 @@ if baseline:
   plt.ylim([-0.55, 0.55])
   plt.savefig(f'plots/v2-plots/9-limited-capacity-rocof-with-baseline.jpg', dpi=400, bbox_inches='tight')
 else:
-  plt.ylim([-0.2, 0.1])
+  plt.ylim([-0.15, 0.05])
   plt.savefig(f'plots/v2-plots/9-limited-capacity-rocof-no-baseline.jpg', dpi=400, bbox_inches='tight')
